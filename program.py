@@ -21,7 +21,7 @@ def main():
         day_diff = relativedelta(game_date_time, now).days
         if day_diff == 0 and hour_diff == 0 and 10 >= minute_diff >= 0:
             message = '#ITFDB!!!'
-            print(message)
+            sense.show_message(message)
 
 
 def get_data_file():
