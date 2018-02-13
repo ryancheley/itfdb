@@ -20,8 +20,10 @@ def main():
         minute_diff = relativedelta(now, game_date_time).minutes
         hour_diff = relativedelta(now, game_date_time).hours
         day_diff = relativedelta(now, game_date_time).days
-        if day_diff == 0 and hour_diff == 0 and 0 >= minute_diff >= -10:
-            message = '#ITFDB!!! The Dodgers will be playing {} at {}'.format(game.game_opponent, game.game_time)
+        month_diff = relativedelta(now, game_date_time).months
+        if month_diff == 0 and day_diff == 0 and hour_diff == 0 and 0 >= minute_diff >= -10:
+            message = '#ITFDB!!! The Dodgers will be playing {} at {} {}'.format(game.game_opponent, game.game_time,
+                                                                              game.game_date_time)
             sense.show_message(message, scroll_speed=0.05)
 
 
