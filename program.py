@@ -17,12 +17,12 @@ def main():
     for game in data:
         game_date_time = datetime.strptime(game.game_date_time, '%Y-%m-%d %I:%M %p')
         game_date_time = local_tz.localize(game_date_time)
-        minute_diff = relativedelta(game_date_time, now).minutes
-        hour_diff = relativedelta(game_date_time, now).hours
-        day_diff = relativedelta(game_date_time, now).days
-        if day_diff == 0 and hour_diff == 0 and 10 >= minute_diff >= 0:
-            message = '#ITFDB!!!'
-            sense.show_message(message)
+        minute_diff = relativedelta(now, game_date_time).minutes
+        hour_diff = relativedelta(now, game_date_time).hours
+        day_diff = relativedelta(now, game_date_time).days
+        if day_diff == 0 and hour_diff == 0 and 0 >= minute_diff >= -10:
+            message = '#ITFDB!!! The Dodgers will be playing {} at {}'.format(game.game_opponent, game.game_time)
+            sense.show_message(message, scroll_speed=0.05)
 
 
 def get_data_file():
