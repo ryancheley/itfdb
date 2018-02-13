@@ -23,7 +23,7 @@ def main():
         month_diff = relativedelta(now, game_date_time).months
         if month_diff == 0 and day_diff == 0 and hour_diff == 0 and 0 >= minute_diff >= -10:
             message = '#ITFDB!!! The Dodgers will be playing {} at {} {}'.format(game.game_opponent, game.game_time,
-                                                                              game.game_date_time)
+                                                                                 game.game_date_time)
             sense.show_message(message, scroll_speed=0.05)
 
 
@@ -35,7 +35,6 @@ def get_data_file():
 
 def load_file(file_name):
     with open(file_name, 'r', encoding='utf-8') as fin:
-
         reader = csv.DictReader(fin)
         schedule = []
         for row in reader:
