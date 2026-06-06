@@ -12,7 +12,7 @@ def main():
     data = load_file(filename)
     sense = SenseHat()
     local_tz = pytz.timezone('America/Los_Angeles')
-    utc_now = pytz.utc.localize(datetime.utcnow())
+    utc_now = datetime.now(pytz.utc)
     now = utc_now.astimezone(local_tz)
     for game in data:
         game_date_time = datetime.strptime(game.game_date_time, '%Y-%m-%d %I:%M %p')
