@@ -2,7 +2,9 @@
 
 This script runs on a Raspberry Pi with a Sense HAT attached and scrolls
 upcoming Los Angeles Dodgers game info across the LED matrix when a game is
-about to start. The schedule is read from a local `schedule.csv`.
+about to start. The schedule is fetched live from the
+[MLB Stats API](https://github.com/toddrob99/MLB-StatsAPI) via the
+`mlb-statsapi` package, so no local data file is needed.
 
 ## Requirements
 
@@ -51,8 +53,10 @@ just run
 uv run python program.py
 ```
 
-The script reads `schedule.csv` and, if a game is starting within the next
-10 minutes, scrolls a summary across the Sense HAT.
+On each run the script queries the MLB Stats API for the day's Dodgers game
+and, if one is starting within the next 10 minutes, scrolls a summary across
+the Sense HAT. It is meant to be run on a short interval (e.g. via `cron`)
+so it can catch the pre-game window. A network connection is required.
 
 ## Development
 

@@ -5,6 +5,7 @@ description = "Scroll upcoming Los Angeles Dodgers game info on a Raspberry Pi S
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "mlb-statsapi>=1.9.0",
     "python-dateutil",
     "pytz",
 ]
